@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "firebase emulators:start",
-    "ci-build": "yarn pre-push && yarn build",
+    "ci-build": "yarn pre-push",
     "lint": "stylelint '**/*.astro' && eslint '**/*.{ts,astro}'",
     "test": "vitest",
     "pre-push": "yarn check-format && yarn lint && yarn test run",
