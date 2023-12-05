@@ -19,7 +19,7 @@ jobs:
           cache: "yarn"
       - name: Install Yarn and Build Solution
         run: |
-          yarn install --frozen-lockfile
+          yarn
           yarn ci-build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
