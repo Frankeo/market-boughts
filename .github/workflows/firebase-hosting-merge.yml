@@ -17,7 +17,10 @@ jobs:
         with:
           node-version: "20.7.0"
           cache: "yarn"
-      - run: yarn ci-build
+      - name: Install Yarn and Build Solution
+        run: |
+          yarn install --frozen-lockfile
+          yarn ci-build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
