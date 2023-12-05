@@ -7379,7 +7379,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "market-boughts@workspace:."
   dependencies:
-    "@astrojs/check": ^0.3.1
     "@astrojs/node": ^6.1.0
     "@commitlint/cli": ^18.2.0
     "@commitlint/config-conventional": ^18.1.0
