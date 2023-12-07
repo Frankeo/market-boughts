@@ -22,7 +22,7 @@ jobs:
           yarn
           yarn ci-build
       - name: Deploy to Firebase
-        uses: joinflux/firebase-tools@v9.16.0
+        uses: joinflux/firebase-tools@v10.7.0
         with:
           args: deploy
         env:
