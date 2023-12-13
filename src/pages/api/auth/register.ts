@@ -2,16 +2,19 @@ import type { APIRoute } from "astro";
 import { getAuth } from "firebase-admin/auth";
 import { app } from "../../../lib/firebase/server";
 
+interface RegisteredUser {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export const POST: APIRoute = async ({ request, redirect }) => {
   const auth = getAuth(app);
 
   /* Get form data */
-  const formData = await request.formData();
-  const email = formData.get("email")?.toString();
-  const password = formData.get("password")?.toString();
-  const name = formData.get("name")?.toString();
+  const { email, name, password } = (await request.json()) as RegisteredUser;
 
-  if (email == null || password == null || name == null) {
+  if (email === undefined || password === undefined || name === undefined) {
     return new Response("Missing form data", { status: 400 });
   }
 

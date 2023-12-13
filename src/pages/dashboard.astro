@@ -5,10 +5,10 @@ import { getAuth } from "firebase-admin/auth";
 const auth = getAuth(app);
 
 /* Check current session */
-if (!Astro.cookies.has("session")) {
+if (!Astro.cookies.has("__session")) {
   return Astro.redirect("/signin");
 }
-const sessionCookie = Astro.cookies.get("session")?.value;
+const sessionCookie = Astro.cookies.get("__session")?.value;
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const decodedCookie = await auth.verifySessionCookie(sessionCookie!);
 const user = await auth.getUser(decodedCookie.uid);
