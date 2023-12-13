@@ -21,9 +21,11 @@ jobs:
         run: |
           yarn
           yarn ci-build
-      - name: Deploy to Firebase
-        uses: joinflux/firebase-tools@v10.7.0
+      - uses: FirebaseExtended/action-hosting-deploy@v0.7.1
         with:
-          args: deploy
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_MARKET_BOUGHTS }}"
+          channelId: live
+          projectId: market-boughts
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
