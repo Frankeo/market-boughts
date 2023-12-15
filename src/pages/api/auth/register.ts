@@ -12,7 +12,16 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const auth = getAuth(app);
 
   /* Get form data */
-  const { email, name, password } = (await request.json()) as RegisteredUser;
+  const formData = await request.formData();
+  const email =
+    formData.get("email")?.toString() ??
+    ((await request.json()) as RegisteredUser).email;
+  const name =
+    formData.get("name")?.toString() ??
+    ((await request.json()) as RegisteredUser).name;
+  const password =
+    formData.get("password")?.toString() ??
+    ((await request.json()) as RegisteredUser).password;
 
   if (email === undefined || password === undefined || name === undefined) {
     return new Response("Missing form data", { status: 400 });

@@ -1,0 +1,35 @@
+---
+import { Menu } from "common-components-astro";
+import "bulma";
+
+interface Props {
+  title: string;
+  user?: string;
+}
+
+const { title, user } = Astro.props;
+const appName = "Market Boughts";
+const session = {
+  hrefSignIn: "/signin",
+  hrefSignOut: "/api/auth/signout",
+  user,
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{`${appName} - ${title}`}</title>
+  </head>
+  <body style="overflow-x: hidden;">
+    <Menu title={appName} session={session} />
+    <slot />
+  </body>
+</html>

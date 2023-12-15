@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^6.1.0",
-    "astro": "^3.4.4",
+    "astro": "^4.0.4",
     "firebase": "^10.7.0",
     "firebase-admin": "^11.11.1",
     "nanostores": "^0.9.3"
@@ -21,10 +21,11 @@
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.6.0",
     "bulma": "0.9.4",
-    "common-components-astro": "^0.0.11",
+    "common-components-astro": "^0.0.12",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^39.0.0",
